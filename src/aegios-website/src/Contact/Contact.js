@@ -24,10 +24,13 @@ const Contact = () => {
   const [scrambledWord, setScrambledWord] = useState("");
 
   useEffect(() => {
-    const selectedWord = WORDS[Math.floor(Math.random() * WORDS.length)];
+    const timestamp = Date.now();
+    const randomIndex = Math.floor((timestamp % WORDS.length)); // Use timestamp for randomness
+    const selectedWord = WORDS[randomIndex];
     setBotWord(selectedWord);
     setScrambledWord(scrambleWord(selectedWord));
   }, []);
+  
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
