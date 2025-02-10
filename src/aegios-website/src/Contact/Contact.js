@@ -29,7 +29,7 @@ const Contact = () => {
     const selectedWord = WORDS[randomIndex];
     setBotWord(selectedWord);
     setScrambledWord(scrambleWord(selectedWord));
-  }, []);
+  }, [submitted]); // Add 'submitted' as a dependency to re-trigger the effect
   
 
   const handleChange = (e) => {
@@ -53,11 +53,19 @@ const Contact = () => {
     const validationErrors = validate();
     if (Object.keys(validationErrors).length === 0) {
       setShowBotTest(true); // Show bot test before submitting
+  
+      // Reset bot test (new word every time the form is submitted)
+      const timestamp = Date.now();
+      const randomIndex = Math.floor((timestamp % WORDS.length)); // Use timestamp for randomness
+      const selectedWord = WORDS[randomIndex];
+      setBotWord(selectedWord);
+      setScrambledWord(scrambleWord(selectedWord));
     } else {
       setErrors(validationErrors);
       setSubmitted(false);
     }
   };
+  
 
   const handleBotTestSubmit = () => {
     if (botAnswer.toLowerCase() === botWord) {
