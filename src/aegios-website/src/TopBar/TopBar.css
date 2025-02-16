@@ -1,0 +1,54 @@
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #0A0611;
+    color: white;
+    position: fixed;
+    top: -60px;  /* Initially hide it above the viewport */
+    left: 0;
+    right: 0;
+    transition: top 0.3s ease;  /* Smooth transition for sliding */
+    border-bottom: white;
+    border-bottom-color:  rgba(148, 129, 154, 0.3);
+    border-bottom-width: 0.5pt;
+    border-top-color: rgba(148, 129, 154, 0.3);
+    border-bottom-style: solid;
+    border-top-width: 0.5pt;  
+    border-top-style: solid;
+  }
+  
+  .topbar.show {
+    top: 0;  /* Show the topbar when scrolling up */
+  }
+  
+  .topbar.hide {
+    top: -60px;  /* Hide the topbar when scrolling down */
+  }
+  
+  .title {
+    font-size: 24px;
+    font-family: 'Spectral SC';
+  }
+  
+  .navList {
+    display: flex;
+    list-style: none;
+    padding: 0;
+  }
+  
+  .navItem {
+    margin-left: 20px;
+  }
+  
+  .navItem a {
+    color: white;
+    font-family: 'Spectral SC';
+    text-decoration: none;
+  }
+  
+  .navItem a:hover {
+    text-decoration: underline;
+  }
+  

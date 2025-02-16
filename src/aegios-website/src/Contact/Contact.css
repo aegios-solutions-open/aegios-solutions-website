@@ -1,0 +1,228 @@
+.contact-container {
+    width: clamp(19cm, 5rem, 35cm);
+    margin: 20px auto;
+    padding: 20px;
+    padding-left: 40px;
+    padding-right: 40px;
+    margin-bottom: 40px;
+    border-radius: 8px;
+    background: #0A0611; /* Background color */
+    box-shadow: 2px 2px 10px rgba(148, 129, 154, 0.3);
+    color: white; /* Text color */
+    font-family: 'Spectral SC';
+    max-width: 500px; /* Ensure the container never exceeds 100% width */
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 0;  /* Reset any default padding */
+    margin: 0 0 20px;  /* Add bottom margin to space from other sections */
+    box-sizing: border-box;
+}
+
+form > * {
+    width: 100%;
+    margin-bottom: 20px; /* Add spacing between form elements */
+    box-sizing: border-box;  /* Ensure padding and borders are within width */
+}
+
+input, textarea {
+    width: 95%; /* Make sure it uses full width */
+    padding: 12px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid #94819A; /* Input border color */
+    border-radius: 5px;
+    background: #181220; /* Slightly lighter background */
+    color: white;
+    font-family: 'Poppins';
+    font-size: 1rem;
+}
+
+textarea {
+    height: 120px;  /* Adjust height if needed */
+    resize: none;  /* Prevent resizing */
+}
+
+button {
+    width: 100%; /* Full width for button */
+    padding: 12px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    background: #181220;
+    color: white;
+    font-family: 'Spectral SC';
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: background 0.3s ease-in-out;
+}
+
+button:hover {
+    background: #2d2636; /* Darker shade for hover */
+}
+
+.error {
+    color: #FF4D4D;
+    font-size: 0.9rem;
+    margin-top: 5px;
+}
+
+.success-message {
+    color: #66FF99;
+    text-align: center;
+    font-size: 1rem;
+    margin-top: 10px;
+}
+
+.contact-section {
+    padding-top: 50px;
+    background-color: #0A0611;
+    margin-top: 0px;
+    padding-bottom: 40px;
+}
+.name, .emailName, .messageName{
+    align-self: center;
+    font-family: 'Poppins';
+    align-content: center;
+    align-items: center;
+    margin-left: 4px;
+    text-align: center;
+    padding-bottom: 5px;
+
+}
+
+
+.copyright {
+    background-color: #0A0611;
+    color: white;
+    font-family: 'Spectral SC';
+    display: block;
+    padding-left: 20px;
+    margin-right: 0;
+    margin-left: 20;
+    float: right;
+    padding-right: 20px;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .contact-container {
+        width: 100%; /* Ensure full width for very small screens */
+        padding: 10px;
+    }
+
+    .contact-container h2 {
+        font-size: 1.2rem; /* Even smaller title for small screens */
+    }
+
+    h2 {
+        display: block;
+        text-align: center;
+    }
+    .name, .emailName, .messageName{
+        display: block;    
+        align-self: center;
+        align-content: center;
+        align-items: center;
+        text-align: center;
+        padding-bottom: 5px;
+
+    }
+
+    input, textarea, button {
+        padding: 12px;  /* Adjust padding for touch devices */
+        max-width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .contact-container {
+        width: 100%; /* Ensure full width for very small screens */
+        padding: 10px;
+    }
+
+    .contact-container h2 {
+        font-size: 1.2rem; /* Even smaller title for small screens */
+    }
+
+    h2 {
+        display: block;
+        text-align: center;
+    }
+    .name, .emailName, .messageName{
+        display: block;    
+        align-self: center;
+        align-content: center;
+        align-items: center;
+        text-align: center;
+        padding-bottom: 5px;
+
+    }
+
+    input, textarea, button {
+        padding: 12px;  /* Adjust padding for touch devices */
+        max-width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+
+.bot-test-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .bot-test-content {
+    background:  rgba(0, 0, 0, 0.6);
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    width: 300px;
+  }
+  
+  .bot-test-content h2 {
+    margin-bottom: 10px;
+    font-family: 'Spectral SC';
+    color: white;
+  }
+  
+  .bot-test-content input {
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    align-self: center;
+    padding: 8px;
+    margin-bottom: 10px;
+  }
+  
+  .bot-test-content button {
+    background: rgba(148, 129, 154, 0.3);
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  
+  .bot-test-content button:hover {
+    background: #0056b3;
+  }
+  

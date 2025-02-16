@@ -1,0 +1,29 @@
+/* Use your custom Brutalist font */
+@font-face {
+    font-family: 'Brutalist';
+    src: url('../assets/fonts/Brutalist/BrutalistMono.ttf') format('truetype');
+}
+
+.transitionText {
+    display: inline-block;
+    font-family: 'Brutalist', sans-serif;  /* Your custom Brutalist font */
+    font-size: 3rem;  /* Adjust font size as needed */
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-transform: uppercase;  /* Common in brutalist design */
+    position: relative;  /* For positioning the blinking letter */
+}
+
+/* Blinking effect on the current letter */
+.blinkingLetter {
+    background-color: white;  /* Set the background of the current letter to white */
+    color: black;  /* Ensure the text color is visible on the white background */
+    animation: blink 0.8s step-start infinite;  /* Blinking effect */
+}
+
+/* Blinking effect for the letter */
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
+}

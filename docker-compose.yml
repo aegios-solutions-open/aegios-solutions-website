@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  aegios-website:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=development
+    env_file:
+      - ../.env
+    working_dir: /app/aegios-website  # Set correct working directory
+    # command: ["npm", "start", "."]
+    # debug
+    command: ["bash"]
+    stdin_open: true  # Keeps the standard input open (useful for interactive bash)
+    tty: true         # Allocates a pseudo-TTY for terminal interaction
+    volumes:
+      - ./src/aegios-website:/app/aegios-website
+      - ./src/aegios-website/node_modules:/app/aegios-website/node_modules  # Avoid overwriting node_modules
