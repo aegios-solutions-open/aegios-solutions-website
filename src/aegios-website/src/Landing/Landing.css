@@ -130,6 +130,15 @@ html, body {
     width: 0ch; /* Initially hide the text */
 }
 
+.landing-text-typing{
+    font-size: clamp(0.5rem, 1.6rem, 2rem);
+    white-space: nowrap;
+    overflow: hidden;
+    font-family: 'Poppins';
+    display: inline-block;
+}
+
+
 /* Cursor effect only when typing */
 .typing {
     border-right: 2px solid white;
@@ -183,13 +192,13 @@ html, body {
 
 
 
-    .landing-text-1, .landing-text-2, .landing-text-3 {
+
+    .landing-text-typing{
         font-size: 0.8rem;
         white-space: nowrap;
         overflow: hidden;
         font-family: 'Poppins';
         display: inline-block;
-        width: 0ch; /* Initially hide the text */
     }
 }
 
@@ -205,7 +214,13 @@ html, body {
     }
 
 
-
+    .landing-text-typing{
+        font-size: 0.7rem;
+        white-space: nowrap;
+        overflow: hidden;
+        font-family: 'Poppins';
+        display: inline-block;
+    }
 .landing-text-1, .landing-text-2, .landing-text-3 {
     font-size: 0.7rem;
     white-space: nowrap;
