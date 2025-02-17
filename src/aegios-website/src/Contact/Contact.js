@@ -9,12 +9,6 @@ const scrambleWord = (word) => {
 };
 
 
-// "service_aol7pvt",
-// "template_mxf5bcy",
-// "MjrI6P2p-lPOxHOd3"
-
-
-
 const Contact = () => {
   const [formData, setFormData] = useState({
     name: "",
