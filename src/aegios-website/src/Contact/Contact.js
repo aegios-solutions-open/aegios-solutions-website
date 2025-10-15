@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
 import "./Contact.css";
-import emailjs from "emailjs-com";
 
 const WORDS = ["secure", "robot", "shield", "verify", "human", "captcha", "safety"];
 
@@ -129,31 +128,29 @@ const Contact = () => {
   const handleBotTestSubmit = () => {
     if (botAnswer.toLowerCase() === botWord) {
       setShowBotTest(false);
+      
+      // Create mailto link with form data
+      const subject = encodeURIComponent(`Contact Form Submission from ${formData.name}`);
+      const body = encodeURIComponent(
+        `Name: ${formData.name}\n` +
+        `Email: ${formData.email}\n\n` +
+        `Message:\n${formData.message}`
+      );
+      const mailtoLink = `mailto:info@aegios.ca?subject=${subject}&body=${body}`;
+      
+      // Open user's email client
+      window.location.href = mailtoLink;
+      
+      // Show success message and reset form
       setSubmitted(true);
-
-      emailjs
-        .send(
-          process.env.REACT_APP_EMAILJS_SERVICE_ID,
-          process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
-          {
-            from_name: formData.name,
-            from_email: formData.email,
-            message: formData.message,
-          },
-          process.env.REACT_APP_EMAILJS_USER_ID
-        )
-        .then(
-          (response) => {
-            console.log("Email sent successfully", response);
-            setFormData({ name: "", email: "", message: "" });
-            setErrors({});
-            setBotAnswer("");
-          },
-          (error) => {
-            console.error("Error sending email:", error);
-            setSubmitted(false);
-          }
-        );
+      setFormData({ name: "", email: "", message: "" });
+      setErrors({});
+      setBotAnswer("");
+      
+      // Reset success message after 5 seconds
+      setTimeout(() => {
+        setSubmitted(false);
+      }, 5000);
     } else {
       setBotError("Incorrect answer, please try again.");
     }
