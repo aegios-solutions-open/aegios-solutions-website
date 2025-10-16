@@ -2,12 +2,12 @@
 :root {
     --cube-color-1: rgba(160, 160, 160, 0.2); /* Gray */
     --cube-color-2: rgba(100, 150, 200, 0.25); /* Blue */
-    --cube-color-3: rgba(150, 100, 180, 0.25); /* Purple */
-    --cube-color-4: rgba(100, 180, 150, 0.25); /* Teal */
+    --cube-color-3: rgba(14, 3, 20, 0.25); /* Purple */
+    --cube-color-4: rgba(7, 10, 213, 0.554); /* Default - will be overridden per cube */
     --cube-border-1: rgba(120, 120, 120, 0.4);
     --cube-border-2: rgba(80, 130, 180, 0.5);
-    --cube-border-3: rgba(130, 80, 160, 0.5);
-    --cube-border-4: rgba(80, 160, 130, 0.5);
+    --cube-border-3: rgba(14, 3, 20, 0.25);
+    --cube-border-4: rgba(7, 10, 213, 0.554); /* Default - will be overridden per cube */
 }
 
 /* Font-face rules */
@@ -234,14 +234,11 @@
     transform-origin: 50% 50% calc(-1 * var(--l));
     transform-style: preserve-3d;
     transform: scale(0.8) rotateY(0deg) translateZ(0);
-    animation: ani 10s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
+    animation: ani 40s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
     animation-delay: calc((var(--n) - 1 - var(--j) + var(--i)) * 0.1 * 3s);
-    will-change: transform, opacity;
-    border: 1px solid rgba(120, 120, 120, 0.4);
-    background: linear-gradient(135deg, 
-      rgba(160, 160, 160, 0.2) 0%, 
-      rgba(140, 140, 140, 0.18) 50%,
-      rgba(120, 120, 120, 0.15) 100%);
+    will-change: transform, opacity, background, border-color;
+    border: 1px solid var(--cube-border-1);
+    background: var(--cube-color-1);
     backdrop-filter: blur(10px);
     box-shadow: 
       0 4px 16px rgba(100, 100, 100, 0.15),
@@ -263,6 +260,24 @@
 .cube:nth-child(n + 9):nth-child(-n + 12) { --j: 2; }
 .cube:nth-child(n + 13):nth-child(-n + 16) { --j: 3; }
 
+/* Random colors for each cube on 4th rotation */
+.cube:nth-child(1) { --cube-color-4: rgba(255, 99, 132, 0.35); --cube-border-4: rgba(255, 99, 132, 0.6); }
+.cube:nth-child(2) { --cube-color-4: rgba(54, 162, 235, 0.35); --cube-border-4: rgba(54, 162, 235, 0.6); }
+.cube:nth-child(3) { --cube-color-4: rgba(255, 206, 86, 0.35); --cube-border-4: rgba(255, 206, 86, 0.6); }
+.cube:nth-child(4) { --cube-color-4: rgba(75, 192, 192, 0.35); --cube-border-4: rgba(75, 192, 192, 0.6); }
+.cube:nth-child(5) { --cube-color-4: rgba(153, 102, 255, 0.35); --cube-border-4: rgba(153, 102, 255, 0.6); }
+.cube:nth-child(6) { --cube-color-4: rgba(255, 159, 64, 0.35); --cube-border-4: rgba(255, 159, 64, 0.6); }
+.cube:nth-child(7) { --cube-color-4: rgba(199, 50, 150, 0.35); --cube-border-4: rgba(199, 50, 150, 0.6); }
+.cube:nth-child(8) { --cube-color-4: rgba(100, 200, 100, 0.35); --cube-border-4: rgba(100, 200, 100, 0.6); }
+.cube:nth-child(9) { --cube-color-4: rgba(255, 100, 200, 0.35); --cube-border-4: rgba(255, 100, 200, 0.6); }
+.cube:nth-child(10) { --cube-color-4: rgba(100, 220, 255, 0.35); --cube-border-4: rgba(100, 220, 255, 0.6); }
+.cube:nth-child(11) { --cube-color-4: rgba(220, 180, 50, 0.35); --cube-border-4: rgba(220, 180, 50, 0.6); }
+.cube:nth-child(12) { --cube-color-4: rgba(50, 150, 200, 0.35); --cube-border-4: rgba(50, 150, 200, 0.6); }
+.cube:nth-child(13) { --cube-color-4: rgba(200, 100, 255, 0.35); --cube-border-4: rgba(200, 100, 255, 0.6); }
+.cube:nth-child(14) { --cube-color-4: rgba(255, 180, 100, 0.35); --cube-border-4: rgba(255, 180, 100, 0.6); }
+.cube:nth-child(15) { --cube-color-4: rgba(150, 255, 150, 0.35); --cube-border-4: rgba(150, 255, 150, 0.6); }
+.cube:nth-child(16) { --cube-color-4: rgba(255, 120, 120, 0.35); --cube-border-4: rgba(255, 120, 120, 0.6); }
+
 .cube::before,
 .cube::after {
     content: '';
@@ -280,55 +295,264 @@
 }
 
 @keyframes ani {
+    /* First rotation - Color 1 (Gray) */
     0% {
         transform: scale(0.8) rotateY(0deg) translateZ(0);
         opacity: 0.85;
         filter: brightness(1);
+        background: var(--cube-color-1);
+        border-color: var(--cube-border-1);
     }
-    2% {
+    0.5% {
         transform: scale(0.81) rotateY(45deg) translateZ(0);
         opacity: 0.88;
         filter: brightness(1.05);
+        background: var(--cube-color-1);
+        border-color: var(--cube-border-1);
     }
-    4% {
+    1% {
         transform: scale(0.82) rotateY(90deg) translateZ(0);
         opacity: 0.92;
         filter: brightness(1.1);
+        background: var(--cube-color-1);
+        border-color: var(--cube-border-1);
     }
-    6% {
+    1.5% {
         transform: scale(0.81) rotateY(135deg) translateZ(0);
         opacity: 0.96;
         filter: brightness(1.12);
+        background: var(--cube-color-1);
+        border-color: var(--cube-border-1);
     }
-    8% {
+    2% {
         transform: scale(0.8) rotateY(180deg) translateZ(0);
         opacity: 1;
         filter: brightness(1.15);
+        background: var(--cube-color-1);
+        border-color: var(--cube-border-1);
     }
-    10% {
+    2.5% {
         transform: scale(0.81) rotateY(225deg) translateZ(0);
         opacity: 0.96;
         filter: brightness(1.12);
+        background: var(--cube-color-1);
+        border-color: var(--cube-border-1);
     }
-    12% {
+    3% {
         transform: scale(0.82) rotateY(270deg) translateZ(0);
         opacity: 0.92;
         filter: brightness(1.1);
+        background: var(--cube-color-1);
+        border-color: var(--cube-border-1);
     }
-    14% {
+    3.5% {
         transform: scale(0.81) rotateY(315deg) translateZ(0);
         opacity: 0.88;
         filter: brightness(1.05);
+        background: var(--cube-color-1);
+        border-color: var(--cube-border-1);
     }
-    16% {
+    4%, 24.99% {
         transform: scale(0.8) rotateY(360deg) translateZ(0);
         opacity: 0.85;
         filter: brightness(1);
+        background: var(--cube-color-1);
+        border-color: var(--cube-border-1);
     }
-    100% {
+    
+    /* Second rotation - Color 2 (Blue) */
+    25% {
+        transform: scale(0.8) rotateY(0deg) translateZ(0);
+        opacity: 0.85;
+        filter: brightness(1);
+        background: var(--cube-color-2);
+        border-color: var(--cube-border-2);
+    }
+    25.5% {
+        transform: scale(0.81) rotateY(45deg) translateZ(0);
+        opacity: 0.88;
+        filter: brightness(1.05);
+        background: var(--cube-color-2);
+        border-color: var(--cube-border-2);
+    }
+    26% {
+        transform: scale(0.82) rotateY(90deg) translateZ(0);
+        opacity: 0.92;
+        filter: brightness(1.1);
+        background: var(--cube-color-2);
+        border-color: var(--cube-border-2);
+    }
+    26.5% {
+        transform: scale(0.81) rotateY(135deg) translateZ(0);
+        opacity: 0.96;
+        filter: brightness(1.12);
+        background: var(--cube-color-2);
+        border-color: var(--cube-border-2);
+    }
+    27% {
+        transform: scale(0.8) rotateY(180deg) translateZ(0);
+        opacity: 1;
+        filter: brightness(1.15);
+        background: var(--cube-color-2);
+        border-color: var(--cube-border-2);
+    }
+    27.5% {
+        transform: scale(0.81) rotateY(225deg) translateZ(0);
+        opacity: 0.96;
+        filter: brightness(1.12);
+        background: var(--cube-color-2);
+        border-color: var(--cube-border-2);
+    }
+    28% {
+        transform: scale(0.82) rotateY(270deg) translateZ(0);
+        opacity: 0.92;
+        filter: brightness(1.1);
+        background: var(--cube-color-2);
+        border-color: var(--cube-border-2);
+    }
+    28.5% {
+        transform: scale(0.81) rotateY(315deg) translateZ(0);
+        opacity: 0.88;
+        filter: brightness(1.05);
+        background: var(--cube-color-2);
+        border-color: var(--cube-border-2);
+    }
+    29%, 49.99% {
         transform: scale(0.8) rotateY(360deg) translateZ(0);
         opacity: 0.85;
         filter: brightness(1);
+        background: var(--cube-color-2);
+        border-color: var(--cube-border-2);
+    }
+    
+    /* Third rotation - Color 3 (Purple) */
+    50% {
+        transform: scale(0.8) rotateY(0deg) translateZ(0);
+        opacity: 0.85;
+        filter: brightness(1);
+        background: var(--cube-color-3);
+        border-color: var(--cube-border-3);
+    }
+    50.5% {
+        transform: scale(0.81) rotateY(45deg) translateZ(0);
+        opacity: 0.88;
+        filter: brightness(1.05);
+        background: var(--cube-color-3);
+        border-color: var(--cube-border-3);
+    }
+    51% {
+        transform: scale(0.82) rotateY(90deg) translateZ(0);
+        opacity: 0.92;
+        filter: brightness(1.1);
+        background: var(--cube-color-3);
+        border-color: var(--cube-border-3);
+    }
+    51.5% {
+        transform: scale(0.81) rotateY(135deg) translateZ(0);
+        opacity: 0.96;
+        filter: brightness(1.12);
+        background: var(--cube-color-3);
+        border-color: var(--cube-border-3);
+    }
+    52% {
+        transform: scale(0.8) rotateY(180deg) translateZ(0);
+        opacity: 1;
+        filter: brightness(1.15);
+        background: var(--cube-color-3);
+        border-color: var(--cube-border-3);
+    }
+    52.5% {
+        transform: scale(0.81) rotateY(225deg) translateZ(0);
+        opacity: 0.96;
+        filter: brightness(1.12);
+        background: var(--cube-color-3);
+        border-color: var(--cube-border-3);
+    }
+    53% {
+        transform: scale(0.82) rotateY(270deg) translateZ(0);
+        opacity: 0.92;
+        filter: brightness(1.1);
+        background: var(--cube-color-3);
+        border-color: var(--cube-border-3);
+    }
+    53.5% {
+        transform: scale(0.81) rotateY(315deg) translateZ(0);
+        opacity: 0.88;
+        filter: brightness(1.05);
+        background: var(--cube-color-3);
+        border-color: var(--cube-border-3);
+    }
+    54%, 74.99% {
+        transform: scale(0.8) rotateY(360deg) translateZ(0);
+        opacity: 0.85;
+        filter: brightness(1);
+        background: var(--cube-color-3);
+        border-color: var(--cube-border-3);
+    }
+    
+    /* Fourth rotation - Color 4 (Teal) */
+    75% {
+        transform: scale(0.8) rotateY(0deg) translateZ(0);
+        opacity: 0.85;
+        filter: brightness(1);
+        background: var(--cube-color-4);
+        border-color: var(--cube-border-4);
+    }
+    75.5% {
+        transform: scale(0.81) rotateY(45deg) translateZ(0);
+        opacity: 0.88;
+        filter: brightness(1.05);
+        background: var(--cube-color-4);
+        border-color: var(--cube-border-4);
+    }
+    76% {
+        transform: scale(0.82) rotateY(90deg) translateZ(0);
+        opacity: 0.92;
+        filter: brightness(1.1);
+        background: var(--cube-color-4);
+        border-color: var(--cube-border-4);
+    }
+    76.5% {
+        transform: scale(0.81) rotateY(135deg) translateZ(0);
+        opacity: 0.96;
+        filter: brightness(1.12);
+        background: var(--cube-color-4);
+        border-color: var(--cube-border-4);
+    }
+    77% {
+        transform: scale(0.8) rotateY(180deg) translateZ(0);
+        opacity: 1;
+        filter: brightness(1.15);
+        background: var(--cube-color-4);
+        border-color: var(--cube-border-4);
+    }
+    77.5% {
+        transform: scale(0.81) rotateY(225deg) translateZ(0);
+        opacity: 0.96;
+        filter: brightness(1.12);
+        background: var(--cube-color-4);
+        border-color: var(--cube-border-4);
+    }
+    78% {
+        transform: scale(0.82) rotateY(270deg) translateZ(0);
+        opacity: 0.92;
+        filter: brightness(1.1);
+        background: var(--cube-color-4);
+        border-color: var(--cube-border-4);
+    }
+    78.5% {
+        transform: scale(0.81) rotateY(315deg) translateZ(0);
+        opacity: 0.88;
+        filter: brightness(1.05);
+        background: var(--cube-color-4);
+        border-color: var(--cube-border-4);
+    }
+    79%, 100% {
+        transform: scale(0.8) rotateY(360deg) translateZ(0);
+        opacity: 0.85;
+        filter: brightness(1);
+        background: var(--cube-color-4);
+        border-color: var(--cube-border-4);
     }
 }
 

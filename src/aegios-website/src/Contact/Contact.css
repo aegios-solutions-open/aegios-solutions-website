@@ -157,6 +157,7 @@ button:active {
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
     transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
     mix-blend-mode: normal;
+    cursor: pointer;
 }
 
 .contact-bg-rect-1 {

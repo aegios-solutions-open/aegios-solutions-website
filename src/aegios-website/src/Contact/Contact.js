@@ -24,6 +24,14 @@ const Contact = () => {
   const [scrambledWord, setScrambledWord] = useState("");
   const [visibilityRatio, setVisibilityRatio] = useState(0);
   const sectionRef = useRef(null);
+  
+  // Mouse tracking state for rectangles
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  const [rectStates, setRectStates] = useState({});
+  const [, setAnimationTick] = useState(0); // Force re-renders for animation
+  const rectRefs = useRef([]);
+  const timeoutsRef = useRef({});
+  const animationFrameRef = useRef(null);
 
   useEffect(() => {
     const timestamp = Date.now();
@@ -58,6 +66,98 @@ const Contact = () => {
     };
   }, []);
 
+  // Mouse tracking effect for interactive rectangles
+  useEffect(() => {
+    const activatedRects = new Set();
+    
+    const handleMouseMove = (e) => {
+      setMousePos({ x: e.clientX, y: e.clientY });
+
+      // Check each rectangle
+      rectRefs.current.forEach((rect, index) => {
+        if (!rect) return;
+        
+        // Skip if this rectangle has already been activated
+        if (activatedRects.has(index)) return;
+
+        const rectBounds = rect.getBoundingClientRect();
+        const rectCenterX = rectBounds.left + rectBounds.width / 2;
+        const rectCenterY = rectBounds.top + rectBounds.height / 2;
+
+        // Calculate distance from mouse to rectangle center
+        const distance = Math.sqrt(
+          Math.pow(e.clientX - rectCenterX, 2) + 
+          Math.pow(e.clientY - rectCenterY, 2)
+        );
+
+        // Activation threshold (pixels)
+        const threshold = 150;
+
+        if (distance < threshold) {
+          // Mark as activated so it can't be triggered again
+          activatedRects.add(index);
+          
+          // Start following
+          setRectStates(prev => ({
+            ...prev,
+            [index]: { following: true, returning: false, used: false, startTime: Date.now() }
+          }));
+
+          // Set timeout to stop following after 2.5 seconds
+          timeoutsRef.current[index] = setTimeout(() => {
+            // First set to returning state
+            setRectStates(prev => ({
+              ...prev,
+              [index]: { following: false, returning: true, used: false }
+            }));
+            
+            // After transition completes, mark as fully used
+            setTimeout(() => {
+              setRectStates(prev => ({
+                ...prev,
+                [index]: { following: false, returning: false, used: true }
+              }));
+            }, 1000); // Wait for the 1s transition to complete
+          }, 2500);
+        }
+      });
+    };
+
+    window.addEventListener('mousemove', handleMouseMove);
+
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove);
+      // Clear all timeouts on cleanup
+      Object.values(timeoutsRef.current).forEach(timeout => {
+        if (timeout) clearTimeout(timeout);
+      });
+    };
+  }, []);
+
+  // Animation loop for floating effect
+  useEffect(() => {
+    const animate = () => {
+      // Check if any rectangle is following
+      const hasFollowing = Object.values(rectStates).some(state => state?.following);
+      
+      if (hasFollowing) {
+        setAnimationTick(tick => tick + 1);
+        animationFrameRef.current = requestAnimationFrame(animate);
+      }
+    };
+
+    const hasFollowing = Object.values(rectStates).some(state => state?.following);
+    if (hasFollowing) {
+      animationFrameRef.current = requestAnimationFrame(animate);
+    }
+
+    return () => {
+      if (animationFrameRef.current) {
+        cancelAnimationFrame(animationFrameRef.current);
+      }
+    };
+  }, [rectStates]);
+
   // Calculate animation progress for each element based on visibility ratio
   const getElementStyle = (baseDelay = 0) => {
     // Scale visibility so 100% is reached at 70% visibility instead of 100%
@@ -86,6 +186,61 @@ const Contact = () => {
       transform: `translateX(${translateX}px)`,
       transition: 'opacity 1s cubic-bezier(0.4, 0, 0.2, 1), transform 1s cubic-bezier(0.4, 0, 0.2, 1)'
     };
+  };
+
+  // Get style for interactive rectangles
+  const getRectStyle = (index) => {
+    const rectState = rectStates[index];
+    
+    if (rectState?.following && rectRefs.current[index]) {
+      const rect = rectRefs.current[index];
+      const rectBounds = rect.getBoundingClientRect();
+      const rectCenterX = rectBounds.left + rectBounds.width / 2;
+      const rectCenterY = rectBounds.top + rectBounds.height / 2;
+
+      // Calculate elapsed time for smooth fade-in effect
+      const elapsed = Date.now() - (rectState?.startTime || Date.now());
+      const fadeInProgress = Math.min(elapsed / 800, 1); // Fade in over 800ms
+      const easedProgress = fadeInProgress * (2 - fadeInProgress); // Ease out quad
+      
+      // Calculate the offset to move toward mouse with smooth easing
+      const deltaX = (mousePos.x - rectCenterX) * 0.15 * easedProgress;
+      const deltaY = (mousePos.y - rectCenterY) * 0.15 * easedProgress;
+
+      // Add time-based floating oscillation that grows with time
+      const floatOffset = Math.sin(elapsed / 450) * 12 * easedProgress; // Gentle up/down float
+      const driftOffset = Math.cos(elapsed / 550) * 10 * easedProgress; // Gentle left/right drift
+      
+      // Add slight rotation based on movement direction and time
+      const rotation = Math.sin(elapsed / 700) * 6 * easedProgress + (deltaX / 70) * 2;
+
+      // Add subtle scale pulsing that starts small
+      const scale = 1 + Math.sin(elapsed / 500) * 0.04 * easedProgress;
+
+      return {
+        transform: `translate(${deltaX + driftOffset}px, ${deltaY + floatOffset}px) rotate(${rotation}deg) scale(${scale})`,
+        animation: 'none',
+        willChange: 'transform',
+        transition: 'transform 0.3s ease-out' // Smooth interpolation between frames
+      };
+    }
+
+    // If it's returning to original position
+    if (rectState?.returning) {
+      return {
+        transform: 'translate(0, 0) rotate(0deg) scale(1)',
+        transition: 'transform 1.5s cubic-bezier(0.34, 1.56, 0.64, 1)',
+        animation: 'none'
+      };
+    }
+
+    // If it has been used, no inline styles - let CSS take over completely
+    if (rectState?.used) {
+      return {};
+    }
+
+    // Return undefined to let CSS take over completely for unused rectangles
+    return undefined;
   };
 
   
@@ -211,15 +366,51 @@ const Contact = () => {
             </form>
           </div>
           <div className="contact-visual" style={getVisualStyle()}>
-            <div className="contact-bg-rectangle contact-bg-rect-1"></div>
-            <div className="contact-bg-rectangle contact-bg-rect-2"></div>
-            <div className="contact-bg-rectangle contact-bg-rect-4"></div>
-            <div className="contact-bg-rectangle contact-bg-rect-5"></div>
-            <div className="contact-bg-rectangle contact-bg-rect-6"></div>
-            <div className="contact-bg-rectangle contact-bg-rect-7"></div>
-            <div className="contact-bg-rectangle contact-bg-rect-8"></div>
-            <div className="contact-bg-rectangle contact-bg-rect-9"></div>
-            <div className="contact-bg-rectangle contact-bg-rect-10"></div>
+            <div 
+              ref={el => rectRefs.current[0] = el}
+              className="contact-bg-rectangle contact-bg-rect-1" 
+              style={getRectStyle(0)}
+            ></div>
+            <div 
+              ref={el => rectRefs.current[1] = el}
+              className="contact-bg-rectangle contact-bg-rect-2" 
+              style={getRectStyle(1)}
+            ></div>
+            <div 
+              ref={el => rectRefs.current[2] = el}
+              className="contact-bg-rectangle contact-bg-rect-4" 
+              style={getRectStyle(2)}
+            ></div>
+            <div 
+              ref={el => rectRefs.current[3] = el}
+              className="contact-bg-rectangle contact-bg-rect-5" 
+              style={getRectStyle(3)}
+            ></div>
+            <div 
+              ref={el => rectRefs.current[4] = el}
+              className="contact-bg-rectangle contact-bg-rect-6" 
+              style={getRectStyle(4)}
+            ></div>
+            <div 
+              ref={el => rectRefs.current[5] = el}
+              className="contact-bg-rectangle contact-bg-rect-7" 
+              style={getRectStyle(5)}
+            ></div>
+            <div 
+              ref={el => rectRefs.current[6] = el}
+              className="contact-bg-rectangle contact-bg-rect-8" 
+              style={getRectStyle(6)}
+            ></div>
+            <div 
+              ref={el => rectRefs.current[7] = el}
+              className="contact-bg-rectangle contact-bg-rect-9" 
+              style={getRectStyle(7)}
+            ></div>
+            <div 
+              ref={el => rectRefs.current[8] = el}
+              className="contact-bg-rectangle contact-bg-rect-10" 
+              style={getRectStyle(8)}
+            ></div>
           </div>
         </div>
       </div>
