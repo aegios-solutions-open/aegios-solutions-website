@@ -77,8 +77,8 @@ const Process = () => {
               <li style={getElementStyle(0.2)}>
                 <strong>Isolationism</strong>
                 <p className="pillar-detail">From the beginning of our engagements we design isolated environments for both hardware and software integrations.
-                  This allows the AI system to be completely independent from existing systems. Every software component runs on its own isolated system. In addition,
-                  we specialize in configuring hardware to run on air-gapped networks, without direct internet access.
+                  Every software component runs on its own isolated system. 
+                  We specialize in configuring hardware to run on air-gapped networks, without direct internet access.
                 </p>
               </li>
               <li style={getElementStyle(0.25)}>
@@ -86,13 +86,13 @@ const Process = () => {
                 <p className="pillar-detail">
                   We train and configure AI models to understand your business and your data. 
                   Documents are processed and ingested into the AI system on scheduled intervals and stored as non-human readable encrypted formats. 
-                  Document information retrieval is only handled by the AI system.
                 </p>
               </li>
               <li style={getElementStyle(0.3)}>
                 <strong>Monitoring and Optimization</strong>
                 <p className="pillar-detail">
-                  We offer monitoring services to ensure the AI system is performing at its best. We offer device-lifetime maintenance support so there are no extra billing of maintenance hours. 
+                  We offer monitoring services to ensure the AI system is performing at its best. 
+                  We offer device-lifetime maintenance support so there are no extra billing of maintenance hours. 
                   Our monitoring software is built in-house and is designed to be highly efficient and secure for ease-of-use for any IT department.
                 </p>
               </li>

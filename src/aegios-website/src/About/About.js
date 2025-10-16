@@ -61,7 +61,7 @@ const About = () => {
   };
 
   const handleProcessClick = () => {
-    const processSection = document.getElementById('process');
+    const processSection = document.getElementById('process-text');
     if (processSection) {
       processSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
@@ -79,7 +79,7 @@ const About = () => {
               AI DEVELOPERS
             </h3>
             <p className="about-description" style={getElementStyle(0.2)}>
-              We are AI Inference Engineers with over a decade of experience serving primarily serving banks across Canada, the US, and in the EU. 
+              We are AI Inference Engineers with over a decade of experience serving banks across Canada, the US, and in the EU. 
               Our expertise lies in private LLM deployments and local infrastructure solutions. If you are a corporate services
               provider, law firm, or a specialized-service organization requiring secure, on-premises AI capabilities, we can help.
             </p>

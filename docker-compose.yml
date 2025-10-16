@@ -12,11 +12,11 @@ services:
     env_file:
       - ../.env
     working_dir: /app/aegios-website  # Set correct working directory
-    # command: ["npm", "start", "."]
+    command: ["npm", "start", "."]
     # debug
-    command: ["bash"]
+    # command: ["bash"]
     stdin_open: true  # Keeps the standard input open (useful for interactive bash)
     tty: true         # Allocates a pseudo-TTY for terminal interaction
     volumes:
       - ./src/aegios-website:/app/aegios-website
-      - ./src/aegios-website/node_modules:/app/aegios-website/node_modules  # Avoid overwriting node_modules
+      # - ./src/aegios-website/node_modules:/app/aegios-website/node_modules  # Avoid overwriting node_modules

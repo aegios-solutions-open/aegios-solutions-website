@@ -213,7 +213,6 @@ const Contact = () => {
           <div className="contact-visual" style={getVisualStyle()}>
             <div className="contact-bg-rectangle contact-bg-rect-1"></div>
             <div className="contact-bg-rectangle contact-bg-rect-2"></div>
-            <div className="contact-bg-rectangle contact-bg-rect-3"></div>
             <div className="contact-bg-rectangle contact-bg-rect-4"></div>
             <div className="contact-bg-rectangle contact-bg-rect-5"></div>
             <div className="contact-bg-rectangle contact-bg-rect-6"></div>

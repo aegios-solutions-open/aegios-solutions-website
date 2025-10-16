@@ -16,5 +16,7 @@ COPY ./src/aegios-website /app
 # Step 6: Expose the default port for the React app
 EXPOSE 3000
 
+RUN npm install
+
 # Step 7: Start the React app
 CMD ["npm", "start"]
