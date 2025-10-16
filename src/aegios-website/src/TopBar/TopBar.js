@@ -7,17 +7,20 @@ const TopBar = () => {
   const [activeSection, setActiveSection] = useState('');
 
   useEffect(() => {
-    let lastScrollTop = 0;
     let scrollTimeout;
 
     const handleScroll = () => {
       const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
       
-      // Removed setShow(true); to allow hiding
-
-      // Remove automatic section selection based on scroll
-      // Sections will only be selected when clicked
-      lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+      // Check if About section is in view
+      const aboutSection = document.getElementById('about');
+      if (aboutSection) {
+        const aboutRect = aboutSection.getBoundingClientRect();
+        // Only allow showing topbar if scrolled past About section
+        if (aboutRect.top > 0) {
+          setShow(false);
+        }
+      }
     };
 
     const handleScrollEnd = () => {
@@ -34,8 +37,17 @@ const TopBar = () => {
     window.addEventListener('scroll', handleScrollListener);
 
     const handleMouseMove = (e) => {
-      const threshold = 100; // pixels from top
-      setShow(e.clientY < threshold);
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      const aboutSection = document.getElementById('about');
+      
+      if (aboutSection) {
+        const aboutRect = aboutSection.getBoundingClientRect();
+        // Only show topbar if scrolled past About section AND mouse is near top
+        if (aboutRect.top <= 0) {
+          const threshold = 400; // pixels from top
+          setShow(e.clientY < threshold);
+        }
+      }
     };
 
     window.addEventListener('mousemove', handleMouseMove);
