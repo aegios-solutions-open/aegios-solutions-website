@@ -61,6 +61,13 @@ const Process = () => {
     };
   };
 
+  const handleContactClick = () => {
+    const contactSection = document.getElementById('contact');
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
   return (
     <div className="process-section" id="process" ref={sectionRef}>
       <div className="process-container">
@@ -97,6 +104,9 @@ const Process = () => {
                 </p>
               </li>
             </ul>
+            <button className="process-button" style={getElementStyle(0.35)} onClick={handleContactClick}>
+              CONTACT US
+            </button>
           </div>
         </div>
       </div>

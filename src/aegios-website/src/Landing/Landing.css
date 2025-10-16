@@ -1,3 +1,15 @@
+/* Cube Color Variables - Adjust these to change cube animation colors */
+:root {
+    --cube-color-1: rgba(160, 160, 160, 0.2); /* Gray */
+    --cube-color-2: rgba(100, 150, 200, 0.25); /* Blue */
+    --cube-color-3: rgba(150, 100, 180, 0.25); /* Purple */
+    --cube-color-4: rgba(100, 180, 150, 0.25); /* Teal */
+    --cube-border-1: rgba(120, 120, 120, 0.4);
+    --cube-border-2: rgba(80, 130, 180, 0.5);
+    --cube-border-3: rgba(130, 80, 160, 0.5);
+    --cube-border-4: rgba(80, 160, 130, 0.5);
+}
+
 /* Font-face rules */
 @font-face {
     font-family: 'IosevkaAile';
