@@ -240,8 +240,9 @@
     border: 1px solid var(--cube-border-1);
     background: var(--cube-color-1);
     backdrop-filter: blur(10px);
-    box-shadow: 
+    box-shadow:
       0 4px 16px rgba(100, 100, 100, 0.15),
+      0 8px 32px rgba(120, 120, 120, 0.12),
       inset 0 1px 3px rgba(255, 255, 255, 0.4);
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
@@ -302,6 +303,11 @@
         filter: brightness(1);
         background: var(--cube-color-1);
         border-color: var(--cube-border-1);
+        box-shadow:
+          0 4px 16px rgba(100, 100, 100, 0.15),
+          0 8px 32px rgba(120, 120, 120, 0.12),
+          0 0 20px rgba(140, 140, 140, 0.08),
+          inset 0 1px 3px rgba(255, 255, 255, 0.4);
     }
     0.5% {
         transform: scale(0.81) rotateY(45deg) translateZ(0);
@@ -309,6 +315,11 @@
         filter: brightness(1.05);
         background: var(--cube-color-1);
         border-color: var(--cube-border-1);
+        box-shadow:
+          0 4px 16px rgba(100, 100, 100, 0.15),
+          0 8px 32px rgba(120, 120, 120, 0.12),
+          0 0 20px rgba(140, 140, 140, 0.08),
+          inset 0 1px 3px rgba(255, 255, 255, 0.4);
     }
     1% {
         transform: scale(0.82) rotateY(90deg) translateZ(0);
@@ -316,6 +327,11 @@
         filter: brightness(1.1);
         background: var(--cube-color-1);
         border-color: var(--cube-border-1);
+        box-shadow:
+          0 4px 16px rgba(100, 100, 100, 0.15),
+          0 8px 32px rgba(120, 120, 120, 0.12),
+          0 0 20px rgba(140, 140, 140, 0.08),
+          inset 0 1px 3px rgba(255, 255, 255, 0.4);
     }
     1.5% {
         transform: scale(0.81) rotateY(135deg) translateZ(0);
@@ -323,6 +339,11 @@
         filter: brightness(1.12);
         background: var(--cube-color-1);
         border-color: var(--cube-border-1);
+        box-shadow:
+          0 4px 16px rgba(100, 100, 100, 0.15),
+          0 8px 32px rgba(120, 120, 120, 0.12),
+          0 0 20px rgba(140, 140, 140, 0.08),
+          inset 0 1px 3px rgba(255, 255, 255, 0.4);
     }
     2% {
         transform: scale(0.8) rotateY(180deg) translateZ(0);
@@ -330,6 +351,11 @@
         filter: brightness(1.15);
         background: var(--cube-color-1);
         border-color: var(--cube-border-1);
+        box-shadow:
+          0 4px 16px rgba(100, 100, 100, 0.15),
+          0 8px 32px rgba(120, 120, 120, 0.12),
+          0 0 20px rgba(140, 140, 140, 0.08),
+          inset 0 1px 3px rgba(255, 255, 255, 0.4);
     }
     2.5% {
         transform: scale(0.81) rotateY(225deg) translateZ(0);
@@ -337,6 +363,11 @@
         filter: brightness(1.12);
         background: var(--cube-color-1);
         border-color: var(--cube-border-1);
+        box-shadow:
+          0 4px 16px rgba(100, 100, 100, 0.15),
+          0 8px 32px rgba(120, 120, 120, 0.12),
+          0 0 20px rgba(140, 140, 140, 0.08),
+          inset 0 1px 3px rgba(255, 255, 255, 0.4);
     }
     3% {
         transform: scale(0.82) rotateY(270deg) translateZ(0);
@@ -344,6 +375,11 @@
         filter: brightness(1.1);
         background: var(--cube-color-1);
         border-color: var(--cube-border-1);
+        box-shadow:
+          0 4px 16px rgba(100, 100, 100, 0.15),
+          0 8px 32px rgba(120, 120, 120, 0.12),
+          0 0 20px rgba(140, 140, 140, 0.08),
+          inset 0 1px 3px rgba(255, 255, 255, 0.4);
     }
     3.5% {
         transform: scale(0.81) rotateY(315deg) translateZ(0);
@@ -351,6 +387,11 @@
         filter: brightness(1.05);
         background: var(--cube-color-1);
         border-color: var(--cube-border-1);
+        box-shadow:
+          0 4px 16px rgba(100, 100, 100, 0.15),
+          0 8px 32px rgba(120, 120, 120, 0.12),
+          0 0 20px rgba(140, 140, 140, 0.08),
+          inset 0 1px 3px rgba(255, 255, 255, 0.4);
     }
     4%, 24.99% {
         transform: scale(0.8) rotateY(360deg) translateZ(0);
@@ -358,6 +399,11 @@
         filter: brightness(1);
         background: var(--cube-color-1);
         border-color: var(--cube-border-1);
+        box-shadow:
+          0 4px 16px rgba(100, 100, 100, 0.15),
+          0 8px 32px rgba(120, 120, 120, 0.12),
+          0 0 20px rgba(140, 140, 140, 0.08),
+          inset 0 1px 3px rgba(255, 255, 255, 0.4);
     }
     
     /* Second rotation - Color 2 (Blue) */
@@ -367,6 +413,11 @@
         filter: brightness(1);
         background: var(--cube-color-2);
         border-color: var(--cube-border-2);
+        box-shadow:
+          0 4px 16px rgba(100, 150, 200, 0.2),
+          0 8px 32px rgba(80, 130, 180, 0.15),
+          0 0 25px rgba(100, 150, 200, 0.12),
+          inset 0 1px 3px rgba(255, 255, 255, 0.4);
     }
     25.5% {
         transform: scale(0.81) rotateY(45deg) translateZ(0);
@@ -374,6 +425,11 @@
         filter: brightness(1.05);
         background: var(--cube-color-2);
         border-color: var(--cube-border-2);
+        box-shadow:
+          0 4px 16px rgba(100, 150, 200, 0.2),
+          0 8px 32px rgba(80, 130, 180, 0.15),
+          0 0 25px rgba(100, 150, 200, 0.12),
+          inset 0 1px 3px rgba(255, 255, 255, 0.4);
     }
     26% {
         transform: scale(0.82) rotateY(90deg) translateZ(0);
@@ -381,6 +437,11 @@
         filter: brightness(1.1);
         background: var(--cube-color-2);
         border-color: var(--cube-border-2);
+        box-shadow:
+          0 4px 16px rgba(100, 150, 200, 0.2),
+          0 8px 32px rgba(80, 130, 180, 0.15),
+          0 0 25px rgba(100, 150, 200, 0.12),
+          inset 0 1px 3px rgba(255, 255, 255, 0.4);
     }
     26.5% {
         transform: scale(0.81) rotateY(135deg) translateZ(0);
@@ -388,6 +449,11 @@
         filter: brightness(1.12);
         background: var(--cube-color-2);
         border-color: var(--cube-border-2);
+        box-shadow:
+          0 4px 16px rgba(100, 150, 200, 0.2),
+          0 8px 32px rgba(80, 130, 180, 0.15),
+          0 0 25px rgba(100, 150, 200, 0.12),
+          inset 0 1px 3px rgba(255, 255, 255, 0.4);
     }
     27% {
         transform: scale(0.8) rotateY(180deg) translateZ(0);
@@ -395,6 +461,11 @@
         filter: brightness(1.15);
         background: var(--cube-color-2);
         border-color: var(--cube-border-2);
+        box-shadow:
+          0 4px 16px rgba(100, 150, 200, 0.2),
+          0 8px 32px rgba(80, 130, 180, 0.15),
+          0 0 25px rgba(100, 150, 200, 0.12),
+          inset 0 1px 3px rgba(255, 255, 255, 0.4);
     }
     27.5% {
         transform: scale(0.81) rotateY(225deg) translateZ(0);
@@ -402,6 +473,11 @@
         filter: brightness(1.12);
         background: var(--cube-color-2);
         border-color: var(--cube-border-2);
+        box-shadow:
+          0 4px 16px rgba(100, 150, 200, 0.2),
+          0 8px 32px rgba(80, 130, 180, 0.15),
+          0 0 25px rgba(100, 150, 200, 0.12),
+          inset 0 1px 3px rgba(255, 255, 255, 0.4);
     }
     28% {
         transform: scale(0.82) rotateY(270deg) translateZ(0);
@@ -409,6 +485,11 @@
         filter: brightness(1.1);
         background: var(--cube-color-2);
         border-color: var(--cube-border-2);
+        box-shadow:
+          0 4px 16px rgba(100, 150, 200, 0.2),
+          0 8px 32px rgba(80, 130, 180, 0.15),
+          0 0 25px rgba(100, 150, 200, 0.12),
+          inset 0 1px 3px rgba(255, 255, 255, 0.4);
     }
     28.5% {
         transform: scale(0.81) rotateY(315deg) translateZ(0);
@@ -416,6 +497,11 @@
         filter: brightness(1.05);
         background: var(--cube-color-2);
         border-color: var(--cube-border-2);
+        box-shadow:
+          0 4px 16px rgba(100, 150, 200, 0.2),
+          0 8px 32px rgba(80, 130, 180, 0.15),
+          0 0 25px rgba(100, 150, 200, 0.12),
+          inset 0 1px 3px rgba(255, 255, 255, 0.4);
     }
     29%, 49.99% {
         transform: scale(0.8) rotateY(360deg) translateZ(0);
@@ -423,6 +509,11 @@
         filter: brightness(1);
         background: var(--cube-color-2);
         border-color: var(--cube-border-2);
+        box-shadow:
+          0 4px 16px rgba(100, 150, 200, 0.2),
+          0 8px 32px rgba(80, 130, 180, 0.15),
+          0 0 25px rgba(100, 150, 200, 0.12),
+          inset 0 1px 3px rgba(255, 255, 255, 0.4);
     }
     
     /* Third rotation - Color 3 (Purple) */
@@ -432,6 +523,11 @@
         filter: brightness(1);
         background: var(--cube-color-3);
         border-color: var(--cube-border-3);
+        box-shadow:
+          0 4px 16px rgba(100, 50, 150, 0.2),
+          0 8px 32px rgba(80, 30, 120, 0.15),
+          0 0 25px rgba(120, 60, 180, 0.12),
+          inset 0 1px 3px rgba(255, 255, 255, 0.4);
     }
     50.5% {
         transform: scale(0.81) rotateY(45deg) translateZ(0);
@@ -439,6 +535,11 @@
         filter: brightness(1.05);
         background: var(--cube-color-3);
         border-color: var(--cube-border-3);
+        box-shadow:
+          0 4px 16px rgba(100, 50, 150, 0.2),
+          0 8px 32px rgba(80, 30, 120, 0.15),
+          0 0 25px rgba(120, 60, 180, 0.12),
+          inset 0 1px 3px rgba(255, 255, 255, 0.4);
     }
     51% {
         transform: scale(0.82) rotateY(90deg) translateZ(0);
@@ -446,6 +547,11 @@
         filter: brightness(1.1);
         background: var(--cube-color-3);
         border-color: var(--cube-border-3);
+        box-shadow:
+          0 4px 16px rgba(100, 50, 150, 0.2),
+          0 8px 32px rgba(80, 30, 120, 0.15),
+          0 0 25px rgba(120, 60, 180, 0.12),
+          inset 0 1px 3px rgba(255, 255, 255, 0.4);
     }
     51.5% {
         transform: scale(0.81) rotateY(135deg) translateZ(0);
@@ -453,6 +559,11 @@
         filter: brightness(1.12);
         background: var(--cube-color-3);
         border-color: var(--cube-border-3);
+        box-shadow:
+          0 4px 16px rgba(100, 50, 150, 0.2),
+          0 8px 32px rgba(80, 30, 120, 0.15),
+          0 0 25px rgba(120, 60, 180, 0.12),
+          inset 0 1px 3px rgba(255, 255, 255, 0.4);
     }
     52% {
         transform: scale(0.8) rotateY(180deg) translateZ(0);
@@ -460,6 +571,11 @@
         filter: brightness(1.15);
         background: var(--cube-color-3);
         border-color: var(--cube-border-3);
+        box-shadow:
+          0 4px 16px rgba(100, 50, 150, 0.2),
+          0 8px 32px rgba(80, 30, 120, 0.15),
+          0 0 25px rgba(120, 60, 180, 0.12),
+          inset 0 1px 3px rgba(255, 255, 255, 0.4);
     }
     52.5% {
         transform: scale(0.81) rotateY(225deg) translateZ(0);
@@ -467,6 +583,11 @@
         filter: brightness(1.12);
         background: var(--cube-color-3);
         border-color: var(--cube-border-3);
+        box-shadow:
+          0 4px 16px rgba(100, 50, 150, 0.2),
+          0 8px 32px rgba(80, 30, 120, 0.15),
+          0 0 25px rgba(120, 60, 180, 0.12),
+          inset 0 1px 3px rgba(255, 255, 255, 0.4);
     }
     53% {
         transform: scale(0.82) rotateY(270deg) translateZ(0);
@@ -474,6 +595,11 @@
         filter: brightness(1.1);
         background: var(--cube-color-3);
         border-color: var(--cube-border-3);
+        box-shadow:
+          0 4px 16px rgba(100, 50, 150, 0.2),
+          0 8px 32px rgba(80, 30, 120, 0.15),
+          0 0 25px rgba(120, 60, 180, 0.12),
+          inset 0 1px 3px rgba(255, 255, 255, 0.4);
     }
     53.5% {
         transform: scale(0.81) rotateY(315deg) translateZ(0);
@@ -481,6 +607,11 @@
         filter: brightness(1.05);
         background: var(--cube-color-3);
         border-color: var(--cube-border-3);
+        box-shadow:
+          0 4px 16px rgba(100, 50, 150, 0.2),
+          0 8px 32px rgba(80, 30, 120, 0.15),
+          0 0 25px rgba(120, 60, 180, 0.12),
+          inset 0 1px 3px rgba(255, 255, 255, 0.4);
     }
     54%, 74.99% {
         transform: scale(0.8) rotateY(360deg) translateZ(0);
@@ -488,15 +619,25 @@
         filter: brightness(1);
         background: var(--cube-color-3);
         border-color: var(--cube-border-3);
+        box-shadow:
+          0 4px 16px rgba(100, 50, 150, 0.2),
+          0 8px 32px rgba(80, 30, 120, 0.15),
+          0 0 25px rgba(120, 60, 180, 0.12),
+          inset 0 1px 3px rgba(255, 255, 255, 0.4);
     }
     
-    /* Fourth rotation - Color 4 (Teal) */
+    /* Fourth rotation - Color 4 (Colorful) */
     75% {
         transform: scale(0.8) rotateY(0deg) translateZ(0);
         opacity: 0.85;
         filter: brightness(1);
         background: var(--cube-color-4);
         border-color: var(--cube-border-4);
+        box-shadow:
+          0 4px 16px color-mix(in srgb, var(--cube-color-4), black 20%),
+          0 8px 32px color-mix(in srgb, var(--cube-border-4), black 30%),
+          0 0 30px color-mix(in srgb, var(--cube-color-4), transparent 40%),
+          inset 0 1px 3px rgba(255, 255, 255, 0.4);
     }
     75.5% {
         transform: scale(0.81) rotateY(45deg) translateZ(0);
@@ -504,6 +645,11 @@
         filter: brightness(1.05);
         background: var(--cube-color-4);
         border-color: var(--cube-border-4);
+        box-shadow:
+          0 4px 16px color-mix(in srgb, var(--cube-color-4), black 20%),
+          0 8px 32px color-mix(in srgb, var(--cube-border-4), black 30%),
+          0 0 30px color-mix(in srgb, var(--cube-color-4), transparent 40%),
+          inset 0 1px 3px rgba(255, 255, 255, 0.4);
     }
     76% {
         transform: scale(0.82) rotateY(90deg) translateZ(0);
@@ -511,6 +657,11 @@
         filter: brightness(1.1);
         background: var(--cube-color-4);
         border-color: var(--cube-border-4);
+        box-shadow:
+          0 4px 16px color-mix(in srgb, var(--cube-color-4), black 20%),
+          0 8px 32px color-mix(in srgb, var(--cube-border-4), black 30%),
+          0 0 30px color-mix(in srgb, var(--cube-color-4), transparent 40%),
+          inset 0 1px 3px rgba(255, 255, 255, 0.4);
     }
     76.5% {
         transform: scale(0.81) rotateY(135deg) translateZ(0);
@@ -518,6 +669,11 @@
         filter: brightness(1.12);
         background: var(--cube-color-4);
         border-color: var(--cube-border-4);
+        box-shadow:
+          0 4px 16px color-mix(in srgb, var(--cube-color-4), black 20%),
+          0 8px 32px color-mix(in srgb, var(--cube-border-4), black 30%),
+          0 0 30px color-mix(in srgb, var(--cube-color-4), transparent 40%),
+          inset 0 1px 3px rgba(255, 255, 255, 0.4);
     }
     77% {
         transform: scale(0.8) rotateY(180deg) translateZ(0);
@@ -525,6 +681,11 @@
         filter: brightness(1.15);
         background: var(--cube-color-4);
         border-color: var(--cube-border-4);
+        box-shadow:
+          0 4px 16px color-mix(in srgb, var(--cube-color-4), black 20%),
+          0 8px 32px color-mix(in srgb, var(--cube-border-4), black 30%),
+          0 0 30px color-mix(in srgb, var(--cube-color-4), transparent 40%),
+          inset 0 1px 3px rgba(255, 255, 255, 0.4);
     }
     77.5% {
         transform: scale(0.81) rotateY(225deg) translateZ(0);
@@ -532,6 +693,11 @@
         filter: brightness(1.12);
         background: var(--cube-color-4);
         border-color: var(--cube-border-4);
+        box-shadow:
+          0 4px 16px color-mix(in srgb, var(--cube-color-4), black 20%),
+          0 8px 32px color-mix(in srgb, var(--cube-border-4), black 30%),
+          0 0 30px color-mix(in srgb, var(--cube-color-4), transparent 40%),
+          inset 0 1px 3px rgba(255, 255, 255, 0.4);
     }
     78% {
         transform: scale(0.82) rotateY(270deg) translateZ(0);
@@ -539,6 +705,11 @@
         filter: brightness(1.1);
         background: var(--cube-color-4);
         border-color: var(--cube-border-4);
+        box-shadow:
+          0 4px 16px color-mix(in srgb, var(--cube-color-4), black 20%),
+          0 8px 32px color-mix(in srgb, var(--cube-border-4), black 30%),
+          0 0 30px color-mix(in srgb, var(--cube-color-4), transparent 40%),
+          inset 0 1px 3px rgba(255, 255, 255, 0.4);
     }
     78.5% {
         transform: scale(0.81) rotateY(315deg) translateZ(0);
@@ -546,6 +717,11 @@
         filter: brightness(1.05);
         background: var(--cube-color-4);
         border-color: var(--cube-border-4);
+        box-shadow:
+          0 4px 16px color-mix(in srgb, var(--cube-color-4), black 20%),
+          0 8px 32px color-mix(in srgb, var(--cube-border-4), black 30%),
+          0 0 30px color-mix(in srgb, var(--cube-color-4), transparent 40%),
+          inset 0 1px 3px rgba(255, 255, 255, 0.4);
     }
     79%, 100% {
         transform: scale(0.8) rotateY(360deg) translateZ(0);
@@ -553,6 +729,11 @@
         filter: brightness(1);
         background: var(--cube-color-4);
         border-color: var(--cube-border-4);
+        box-shadow:
+          0 4px 16px color-mix(in srgb, var(--cube-color-4), black 20%),
+          0 8px 32px color-mix(in srgb, var(--cube-border-4), black 30%),
+          0 0 30px color-mix(in srgb, var(--cube-color-4), transparent 40%),
+          inset 0 1px 3px rgba(255, 255, 255, 0.4);
     }
 }
 
@@ -946,4 +1127,5 @@
 .audio-label {
   display: none;
 }
+
 

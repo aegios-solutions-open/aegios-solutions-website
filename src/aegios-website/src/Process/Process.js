@@ -48,16 +48,13 @@ const Process = () => {
   };
 
   const getDiagramStyle = () => {
-    // Scale visibility so 100% is reached at 70% visibility instead of 100%
-    const scaledRatio = Math.min(1, visibilityRatio / 0.7);
-    const progress = Math.max(0, Math.min(1, scaledRatio));
-    const opacity = progress;
-    const translateX = (1 - progress) * 40; // Start 40px right
-    
+    // Just appear immediately without sliding animation
+    const opacity = visibilityRatio > 0.1 ? 1 : 0;
+
     return {
       opacity,
-      transform: `translateX(${translateX}px)`,
-      transition: 'opacity 0.4s ease-out, transform 0.4s ease-out'
+      transform: 'translateX(0px)',
+      transition: 'opacity 0.6s ease-out'
     };
   };
 
@@ -83,8 +80,8 @@ const Process = () => {
             <ul className="process-pillars">
               <li style={getElementStyle(0.2)}>
                 <strong>Isolationism</strong>
-                <p className="pillar-detail">From the beginning of our engagements we design isolated environments for both hardware and software integrations.
-                  Every software component runs on its own isolated system. 
+                <p className="pillar-detail">
+                  We build and design isolated environments for both hardware and software integrations.
                   We specialize in configuring hardware to run on air-gapped networks, without direct internet access.
                 </p>
               </li>
@@ -99,7 +96,7 @@ const Process = () => {
                 <strong>Monitoring and Optimization</strong>
                 <p className="pillar-detail">
                   We offer monitoring services to ensure the AI system is performing at its best. 
-                  We offer device-lifetime maintenance support so there are no extra billing of maintenance hours. 
+                  Our packages include device-lifetime maintenance support so there are no extra billing of maintenance hours. 
                   Our monitoring software is built in-house and is designed to be highly efficient and secure for ease-of-use for any IT department.
                 </p>
               </li>

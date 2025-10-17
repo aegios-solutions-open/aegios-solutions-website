@@ -82,8 +82,15 @@ const Landing = () => {
 
   return (
     <div className="landing-container" id="home">
-
-
+      {/* Brutalist Blocks */}
+      <div className="brutalist-container">
+        <div className="brutalist-block left">
+          <div className="brutalist-details"></div>
+        </div>
+        <div className="brutalist-block right">
+          <div className="brutalist-details"></div>
+        </div>
+      </div>
 
       {/* Main Content */}
       <div className="hero-content" id="landing-element">

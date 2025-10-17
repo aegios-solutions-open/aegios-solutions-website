@@ -11,16 +11,9 @@ const TopBar = () => {
 
     const handleScroll = () => {
       const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-      
-      // Check if About section is in view
-      const aboutSection = document.getElementById('about');
-      if (aboutSection) {
-        const aboutRect = aboutSection.getBoundingClientRect();
-        // Only allow showing topbar if scrolled past About section
-        if (aboutRect.top > 0) {
-          setShow(false);
-        }
-      }
+
+      // No restrictions - topbar can appear anywhere on the page
+      // The mouse movement will control visibility
     };
 
     const handleScrollEnd = () => {
@@ -38,16 +31,10 @@ const TopBar = () => {
 
     const handleMouseMove = (e) => {
       const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-      const aboutSection = document.getElementById('about');
-      
-      if (aboutSection) {
-        const aboutRect = aboutSection.getBoundingClientRect();
-        // Only show topbar if scrolled past About section AND mouse is near top
-        if (aboutRect.top <= 0) {
-          const threshold = 400; // pixels from top
-          setShow(e.clientY < threshold);
-        }
-      }
+
+      // Show topbar when mouse is in top 30% of screen, regardless of scroll position
+      const threshold = window.innerHeight * 0.3; // 30% of viewport height from top
+      setShow(e.clientY < threshold);
     };
 
     window.addEventListener('mousemove', handleMouseMove);
