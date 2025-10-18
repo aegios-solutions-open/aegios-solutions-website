@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import './About.css';
+import sideProfileImage from '../assets/images/side-profile.png';
 
 const About = () => {
   const [visibilityRatio, setVisibilityRatio] = useState(0);
@@ -89,7 +90,11 @@ const About = () => {
           </div>
           <div className="about-image" style={getImageStyle()}>
             <div className="image-placeholder">
-              <div className="placeholder-text">Image Placeholder</div>
+              <img
+                src={sideProfileImage}
+                alt="Professional headshot"
+                className="profile-image"
+              />
             </div>
             <div className="textured-background">
               <div className="texture-pattern"></div>
