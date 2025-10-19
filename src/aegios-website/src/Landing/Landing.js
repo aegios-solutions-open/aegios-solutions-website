@@ -94,6 +94,23 @@ const Landing = () => {
 
       {/* Main Content */}
       <div className="hero-content" id="landing-element">
+        {/* Floating rectangles for landing section */}
+        {/* <div className="landing-bg-rectangle landing-bg-rect-1">
+          <span className="greek-symbol">Ξ</span>
+        </div>
+        <div className="landing-bg-rectangle landing-bg-rect-2">
+          <span className="greek-symbol">Γ</span>
+        </div>
+        <div className="landing-bg-rectangle landing-bg-rect-3">
+          <span className="greek-symbol">Δ</span>
+        </div>
+        <div className="landing-bg-rectangle landing-bg-rect-4">
+          <span className="greek-symbol">Θ</span>
+        </div>
+        <div className="landing-bg-rectangle landing-bg-rect-5">
+          <span className="greek-symbol">Σ</span>
+        </div>
+         */}
         <div className="title-container">
           <h1 className="hero-title">AEGIOS</h1>
           <div className="cube-animations-wrapper">

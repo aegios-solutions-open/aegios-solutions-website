@@ -1128,4 +1128,189 @@
   display: none;
 }
 
+/* Landing Background Rectangles */
+.landing-bg-rectangle {
+  position: absolute;
+  z-index: 1;
+  mix-blend-mode: difference;
+  background: white;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.greek-symbol {
+  font-weight: 400;
+  font-family: 'Cinzel', serif;
+  color: rgba(0, 0, 0, 0.4);
+  user-select: none;
+  pointer-events: none;
+  mix-blend-mode: normal;
+}
+
+.landing-bg-rect-1 {
+  top: 15%;
+  left: 8%;
+  width: 5vw;
+  height: 5vw;
+  border: 1px solid rgba(200, 200, 200, 0.4);
+  transform: rotate(-20deg);
+  box-shadow: -15px 18px 45px rgba(0, 0, 0, 0.3), 
+              inset 4px -4px 16px rgba(0, 0, 0, 0.1);
+  animation: landing-float-1 6.5s ease-in-out infinite;
+}
+
+.landing-bg-rect-1 .greek-symbol {
+  font-size: 2.8vw;
+}
+
+.landing-bg-rect-2 {
+  top: 60%;
+  left: 12%;
+  width: 3.5vw;
+  height: 3.5vw;
+  border: 1px solid rgba(200, 200, 200, 0.4);
+  transform: rotate(15deg);
+  box-shadow: 12px 15px 40px rgba(0, 0, 0, 0.3), 
+              inset -3px 3px 14px rgba(0, 0, 0, 0.1);
+  animation: landing-float-2 7s ease-in-out infinite;
+}
+
+.landing-bg-rect-2 .greek-symbol {
+  font-size: 2vw;
+}
+
+.landing-bg-rect-3 {
+  top: 40%;
+  left: 5%;
+  width: 4vw;
+  height: 4vw;
+  border: 1px solid rgba(200, 200, 200, 0.4);
+  transform: rotate(-10deg);
+  box-shadow: -10px -12px 38px rgba(0, 0, 0, 0.3), 
+              inset 3px 3px 15px rgba(0, 0, 0, 0.1);
+  animation: landing-float-3 5.5s ease-in-out infinite;
+}
+
+.landing-bg-rect-3 .greek-symbol {
+  font-size: 2.3vw;
+}
+
+.landing-bg-rect-4 {
+  top: 20%;
+  right: 10%;
+  width: 4.5vw;
+  height: 4.5vw;
+  border: 1px solid rgba(200, 200, 200, 0.4);
+  transform: rotate(25deg);
+  box-shadow: 15px -15px 42px rgba(0, 0, 0, 0.3), 
+              inset -4px 4px 15px rgba(0, 0, 0, 0.1);
+  animation: landing-float-4 6s ease-in-out infinite;
+}
+
+.landing-bg-rect-4 .greek-symbol {
+  font-size: 2.5vw;
+}
+
+.landing-bg-rect-5 {
+  bottom: 25%;
+  right: 8%;
+  width: 3.8vw;
+  height: 3.8vw;
+  border: 1px solid rgba(200, 200, 200, 0.4);
+  transform: rotate(-15deg);
+  box-shadow: -12px 14px 40px rgba(0, 0, 0, 0.3), 
+              inset 3px -3px 14px rgba(0, 0, 0, 0.1);
+  animation: landing-float-5 6.8s ease-in-out infinite;
+}
+
+.landing-bg-rect-5 .greek-symbol {
+  font-size: 2.2vw;
+}
+
+@keyframes landing-float-1 {
+  0%, 100% {
+    transform: rotate(-20deg) translateY(0) translateX(0);
+  }
+  50% {
+    transform: rotate(-23deg) translateY(-9px) translateX(5px);
+  }
+}
+
+@keyframes landing-float-2 {
+  0%, 100% {
+    transform: rotate(15deg) translateY(0) translateX(0);
+  }
+  50% {
+    transform: rotate(18deg) translateY(-7px) translateX(-4px);
+  }
+}
+
+@keyframes landing-float-3 {
+  0%, 100% {
+    transform: rotate(-10deg) translateY(0) translateX(0);
+  }
+  50% {
+    transform: rotate(-13deg) translateY(-8px) translateX(3px);
+  }
+}
+
+@keyframes landing-float-4 {
+  0%, 100% {
+    transform: rotate(25deg) translateY(0) translateX(0);
+  }
+  50% {
+    transform: rotate(28deg) translateY(-8px) translateX(-5px);
+  }
+}
+
+@keyframes landing-float-5 {
+  0%, 100% {
+    transform: rotate(-15deg) translateY(0) translateX(0);
+  }
+  50% {
+    transform: rotate(-18deg) translateY(-7px) translateX(4px);
+  }
+}
+
+/* Mobile responsiveness for landing rectangles */
+@media (max-width: 768px) {
+  .landing-bg-rect-1,
+  .landing-bg-rect-2,
+  .landing-bg-rect-3,
+  .landing-bg-rect-4,
+  .landing-bg-rect-5 {
+    width: 30px;
+    height: 30px;
+  }
+  
+  .landing-bg-rect-1 .greek-symbol,
+  .landing-bg-rect-2 .greek-symbol,
+  .landing-bg-rect-3 .greek-symbol,
+  .landing-bg-rect-4 .greek-symbol,
+  .landing-bg-rect-5 .greek-symbol {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .landing-bg-rect-1,
+  .landing-bg-rect-2,
+  .landing-bg-rect-3,
+  .landing-bg-rect-4,
+  .landing-bg-rect-5 {
+    width: 25px;
+    height: 25px;
+  }
+  
+  .landing-bg-rect-1 .greek-symbol,
+  .landing-bg-rect-2 .greek-symbol,
+  .landing-bg-rect-3 .greek-symbol,
+  .landing-bg-rect-4 .greek-symbol,
+  .landing-bg-rect-5 .greek-symbol {
+    font-size: 14px;
+  }
+}
+
 

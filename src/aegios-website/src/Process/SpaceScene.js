@@ -27,13 +27,24 @@ const SpaceScene = () => {
     };
   }, []);
 
-  // Generate random positions for planets and star tails
-  const generateRandomStyle = () => ({
-    '--x': Math.random(),
-    '--y': Math.random(),
-    '--x2': Math.random() - 0.5,
-    '--y2': Math.random() - 0.5,
-    '--delay': Math.random(),
+  // Seeded random number generator
+  const seededRandom = (seed) => {
+    let state = seed;
+    return () => {
+      state = (state * 1664525 + 1013904223) % 4294967296;
+      return state / 4294967296;
+    };
+  };
+
+  // Generate random positions with seed for consistency
+  const rand = seededRandom(42); // Fixed seed for reproducible results
+  
+  const generateRandomStyle = (index) => ({
+    '--x': rand(),
+    '--y': rand(),
+    '--x2': rand() - 0.5,
+    '--y2': rand() - 0.5,
+    '--delay': rand(),
   });
 
   return (
@@ -41,13 +52,13 @@ const SpaceScene = () => {
       <div className="stars"></div>
       <div className="stars-highlights"></div>
       <div className="planets">
-        {[...Array(50)].map((_, i) => <div key={i} style={generateRandomStyle()}></div>)}
+        {[...Array(50)].map((_, i) => <div key={i} style={generateRandomStyle(i)}></div>)}
       </div>
       <div className="planets-2">
-        {[...Array(50)].map((_, i) => <div key={i} style={generateRandomStyle()}></div>)}
+        {[...Array(50)].map((_, i) => <div key={i} style={generateRandomStyle(i)}></div>)}
       </div>
       <div className="startails">
-        {[...Array(200)].map((_, i) => <div key={i} style={generateRandomStyle()}></div>)}
+        {[...Array(200)].map((_, i) => <div key={i} style={generateRandomStyle(i)}></div>)}
       </div>
       <div className="scene">
         <div className="sun"></div>

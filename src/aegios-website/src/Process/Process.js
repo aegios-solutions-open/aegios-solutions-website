@@ -71,8 +71,33 @@ const Process = () => {
         <div className="process-content">
           <div className="process-diagram" style={getDiagramStyle()}>
             <SpaceScene />
+            <div className="process-bg-rectangle process-bg-rect-1">
+              <span className="greek-symbol">Φ</span>
+            </div>
+            <div className="process-bg-rectangle process-bg-rect-2">
+              <span className="greek-symbol">Ψ</span>
+            </div>
+            <div className="process-bg-rectangle process-bg-rect-3">
+              <span className="greek-symbol">Ω</span>
+            </div>
+            <div className="process-bg-rectangle process-bg-rect-4">
+              <span className="greek-symbol">Δ</span>
+            </div>
+            <div className="process-bg-rectangle process-bg-rect-5">
+              <span className="greek-symbol">Θ</span>
+            </div>
+            <div className="process-bg-rectangle process-bg-rect-6">
+              <span className="greek-symbol">Σ</span>
+            </div>
+            <div className="process-bg-rectangle process-bg-rect-8">
+              <span className="greek-symbol">Λ</span>
+            </div>
+            <div className="process-bg-rectangle process-bg-rect-9">
+              <span className="greek-symbol">Π</span>
+            </div>
           </div>
           <div className="process-text" id="process-text">
+            {/* Floating rectangles for process text section */}
             <h2 className="process-heading" style={getElementStyle(0.1)}>Our Process</h2>
             <p className="process-description" style={getElementStyle(0.15)}>
               We break our method into 3 main pillars
