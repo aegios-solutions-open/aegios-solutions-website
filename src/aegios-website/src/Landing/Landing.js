@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
 import './Landing.css';
+import logo from '../assets/images/aegios-logo.png';
 
 const texts = [
   "Private AI LLMs for the discreet service provider.",
@@ -112,8 +113,12 @@ const Landing = () => {
         </div>
          */}
         <div className="title-container">
+          <div className="hero-logo-wrapper">
+            <img src={logo} alt="Aegios Logo" className="hero-logo" />
+          </div>
+          
           <h1 className="hero-title">AEGIOS</h1>
-          <div className="cube-animations-wrapper">
+          {/* <div className="cube-animations-wrapper">
             <div className="cube-animation">
               <div className="grid">
                 {Array.from({ length: 16 }, (_, index) => (
@@ -128,7 +133,7 @@ const Landing = () => {
                 ))}
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
         
         {/* Typing Text */}
@@ -144,11 +149,9 @@ const Landing = () => {
         {/* Volume Toggle */}
         <button className="landing-audio-toggle" onClick={handleAudioToggle}>
           <div className="audio-icon">
-            <div className="bar"></div>
-            <div className="bar"></div>
-            <div className="bar"></div>
-            <div className="bar"></div>
-            <div className="bar"></div>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="landing-audio-logo">
+              <path d="M6 9L12 15L18 9" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
           </div>
           <span className="audio-label">{isAudioPlaying ? 'Pause Music' : 'Play Music'}</span>
         </button>

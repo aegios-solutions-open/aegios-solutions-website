@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './TopBar.css';
+import logo from '../assets/images/aegios-logo.png';
 
 const TopBar = () => {
   const [show, setShow] = useState(false); // Initially hidden
@@ -59,8 +60,9 @@ const TopBar = () => {
   return (
     <div className={`topbar ${show ? 'show' : ''} ${isScrolling ? 'scrolling' : ''}`}>
       <div className="topbar-content">
-        <div className="title" onClick={() => scrollToSection('about')}>
-          AEGIOS
+        <div className="topbar-title-container" onClick={() => scrollToSection('about')}>
+          <img src={logo} alt="Aegios Logo" className="topbar-logo" />
+          <div className="topbar-title">AEGIOS</div>
         </div>
         <nav className="nav-container">
           <ul className="navList">

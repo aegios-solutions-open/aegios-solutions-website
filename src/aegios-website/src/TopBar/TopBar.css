@@ -34,18 +34,33 @@
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
   }
   
-  .title {
+  .topbar-title-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .topbar-title-container:hover .topbar-title {
+    color: #333333;
+  }
+
+  .topbar-logo {
+    height: 40px;
+    width: auto;
+    transition: all 0.3s ease;
+    filter: brightness(0) saturate(100%);
+  }
+
+  .topbar-title {
     font-size: 32px;
     font-family: 'IosevkaAile', monospace;
     font-weight: 700;
     color: #000000;
     text-transform: uppercase;
-    cursor: pointer;
     transition: all 0.3s ease;
-  }
-
-  .title:hover {
-    color: #333333;
   }
 
   .nav-container {
@@ -98,7 +113,15 @@
       padding: 15px 20px;
     }
 
-    .title {
+    .topbar-logo {
+      height: 32px;
+    }
+
+    .topbar-title-container {
+      gap: 10px;
+    }
+
+    .topbar-title {
       font-size: 24px;
     }
 
@@ -117,7 +140,15 @@
       padding: 12px 15px;
     }
 
-    .title {
+    .topbar-logo {
+      height: 28px;
+    }
+
+    .topbar-title-container {
+      gap: 8px;
+    }
+
+    .topbar-title {
       font-size: 20px;
     }
 

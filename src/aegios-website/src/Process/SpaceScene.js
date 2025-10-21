@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react';
+import logo from '../assets/images/aegios-logo.png';
 
 const SpaceScene = () => {
   const audioRef = useRef(null);
@@ -137,11 +138,7 @@ const SpaceScene = () => {
         </div>
       </div>
       <button ref={audioButtonRef} id="audiobutton" className="audio-icon-button">
-        <div className="bar"></div>
-        <div className="bar"></div>
-        <div className="bar"></div>
-        <div className="bar"></div>
-        <div className="bar"></div>
+        <img src={logo} alt="Audio Toggle" className="audio-logo" />
       </button>
       <audio ref={audioRef} id="audio" loop src="https://assets.codepen.io/907471/cosmic_dreams.mp3"></audio>
       <div className="highlight"></div>
