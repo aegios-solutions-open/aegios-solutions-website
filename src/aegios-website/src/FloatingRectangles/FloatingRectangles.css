@@ -1,0 +1,111 @@
+.floating-rectangles-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 1;
+  perspective: 1000px;
+  transform-style: preserve-3d;
+}
+
+.floating-rect {
+  position: absolute;
+  background: transparent;
+  border-radius: 2px;
+  pointer-events: none;
+  will-change: transform;
+  animation: float-drift 40s infinite ease-in-out;
+  transition: all 0.3s ease;
+}
+
+/* Multiple animation variations for natural movement */
+@keyframes float-drift {
+  0% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(30px, -40px);
+  }
+  50% {
+    transform: translate(-20px, -80px);
+  }
+  75% {
+    transform: translate(-40px, -40px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+/* Alternative animation for variety */
+.floating-rect:nth-child(2n) {
+  animation-name: float-drift-alt;
+}
+
+@keyframes float-drift-alt {
+  0% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(-35px, 45px);
+  }
+  50% {
+    transform: translate(25px, 90px);
+  }
+  75% {
+    transform: translate(50px, 30px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+/* Third variation */
+.floating-rect:nth-child(3n) {
+  animation-name: float-drift-slow;
+}
+
+@keyframes float-drift-slow {
+  0% {
+    transform: translate(0, 0);
+  }
+  33% {
+    transform: translate(20px, 60px);
+  }
+  66% {
+    transform: translate(-30px, 30px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .floating-rectangles-container {
+    perspective: 500px;
+  }
+  
+  .floating-rect {
+    animation-duration: 25s !important;
+  }
+}
+
+/* Subtle parallax effect on scroll (optional enhancement) */
+@media (prefers-reduced-motion: no-preference) {
+  .floating-rect {
+    animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
+
+/* For users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .floating-rect {
+    animation: none;
+    opacity: 0.02 !important;
+  }
+}
+

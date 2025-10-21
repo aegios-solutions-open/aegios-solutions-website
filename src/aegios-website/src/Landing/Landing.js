@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import './Landing.css';
 import logo from '../assets/images/aegios-logo.png';
+import FloatingRectangles from '../FloatingRectangles/FloatingRectangles';
 
 const texts = [
   "Private AI LLMs for the discreet service provider.",
@@ -83,6 +84,9 @@ const Landing = () => {
 
   return (
     <div className="landing-container" id="home">
+      {/* Floating Rectangles - Only on Landing Page */}
+      <FloatingRectangles />
+      
       {/* Brutalist Blocks */}
       <div className="brutalist-container">
         <div className="brutalist-block left">
