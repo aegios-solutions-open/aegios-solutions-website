@@ -189,24 +189,32 @@
 
 .hero-logo-wrapper {
     position: relative;
+    margin-top: 80px;
     display: flex;
     align-items: center;
     justify-content: center;
-}
+    /* background: linear-gradient(135deg, rgba(188, 182, 182, 0.7) 0%, rgba(12, 0, 0, 0.2) 100%); */
+    /* background: linear-gradient(135deg, rgba(188, 182, 182, 0.7) 0%, rgba(12, 0, 0, 0.2) 100%); */
+    /* background: linear-gradient(45deg, rgba(98, 123, 160, 0.2) 40%, rgba(225, 223, 251, 0.3) 90%); */
+    /* border: 3.0px solid rgba(26, 24, 24, 0.2); */
+    /* width: 220px; */
+    /* height: 250px;  */
+
+  }
 
 
 .hero-logo {
-    width: 350px;
-    height: 350px;
+    width: 280px;
+    height: 300px;
     display: block;
+    filter: brightness(25) saturate(25%) invert(100%);
     position: relative;
     z-index: 1;
-    margin: 0 auto;
-    transform: translateX(10px);
-    opacity: 0.40;
-    filter: drop-shadow(0 2px 4px rgba(255, 255, 255, 0.3)) 
-            drop-shadow(0 4px 8px rgba(128, 208, 199, 0.25)) 
-            drop-shadow(0 6px 12px rgba(0, 147, 233, 0.2));
+    margin: 0 auto 5px auto;
+    margin-bottom: -70px;
+    transform: translateX(0);
+    opacity: 0.75;
+    border-radius: 0;
 }
 
 @keyframes hero-logo-float {
@@ -223,9 +231,11 @@
     font-family: 'IosevkaAile', monospace;
     font-size: 72px;
     margin: 0;
+    padding-top: 30px;
     color: #333;
-    font-weight: 700;
+    font-weight: 200;
     text-align: center;
+    text-shadow: 2px 2px 4px rgba(174, 185, 233, 0.3);
 }
 
 .cube-animations-wrapper {
