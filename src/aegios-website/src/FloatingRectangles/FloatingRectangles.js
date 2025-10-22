@@ -103,9 +103,9 @@ const FloatingRectangles = () => {
       const delay = rand() * -20; // Stagger the animations
       
       // Uniform opacity for all rectangles
-      const opacity = 0.40; // Same opacity for all rectangles
-      const blur = (1 - depth) * 2; // More distant = more blur
-      const scale = 0.3 + (depth * 0.7); // More distant = smaller
+      const opacity = 0.60; // Same opacity for all rectangles
+      const blur = (1 - depth) * 3.0; // More distant = more blur
+      const scale = 0.8 + (depth * 0.2); // More distant = smaller
       
       // Randomly choose between two aspect ratios
       const aspectRatio = rand() > 0.5 ? (9/8) : (10/9); // 8:9 or 9:10

@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
 import './Landing.css';
-import logo from '../assets/images/aegios-logo.png';
+import logo from '../assets/images/cartoon-logo.png';
 import FloatingRectangles from '../FloatingRectangles/FloatingRectangles';
 
 const texts = [
