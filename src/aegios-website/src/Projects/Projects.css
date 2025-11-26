@@ -1,0 +1,411 @@
+.projects-section {
+    padding: 80px 0;
+    background: transparent;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow-x: hidden;
+    overflow-y: visible;
+    margin: 0;
+    width: 100%;
+}
+
+.projects-container {
+    max-width: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    z-index: 10;
+    box-sizing: border-box;
+}
+
+.projects-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    width: 100%;
+}
+
+.projects-heading {
+    font-family: 'Cinzel', serif;
+    font-size: 55px;
+    font-weight: 400;
+    font-style: italic;
+    color: #2c2c2c;
+    margin: 0 0 30px 0;
+    text-align: center;
+    width: 100%;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    max-width: 1200px;
+    width: 90vw;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.projects-item {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background: rgb(247, 247, 247);
+    padding: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.projects-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.project-image-placeholder {
+    width: 100%;
+    height: 350px;
+    background-color: #808080;
+    /* Temporary grey placeholder */
+    border-radius: 2px;
+}
+
+.projects-item-content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.projects-item-title {
+    font-family: 'Spectral', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+    font-size: 24px;
+    font-weight: 500;
+    color: #2c2c2c;
+    margin: 0;
+}
+
+.projects-item-description {
+    font-family: 'Spectral', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #555;
+    margin: 0;
+    font-weight: 300;
+}
+
+.projects-button {
+    font-family: 'IosevkaAile', monospace;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: white;
+    background: #000000;
+    border: none;
+    padding: 15px 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 0;
+    margin-top: 30px;
+}
+
+.projects-button:hover {
+    background: #333333;
+    transform: translateY(-2px);
+}
+
+/* Background Rectangles */
+.projects-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.bg-rectangle {
+    position: absolute;
+    z-index: 0;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.bg-rect-1 {
+    top: 20%;
+    left: 5%;
+    width: 6vw;
+    height: 6vw;
+    background: linear-gradient(45deg, rgba(128, 208, 199, 0.25) 0%, rgba(0, 147, 233, 0.25) 100%);
+    transform: rotate(-15deg);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    animation: float-rect-1 8s ease-in-out infinite;
+}
+
+.bg-rect-2 {
+    top: 60%;
+    left: 10%;
+    width: 5vw;
+    height: 5vw;
+    background: linear-gradient(120deg, rgba(0, 147, 233, 0.25) 0%, rgba(128, 208, 199, 0.25) 100%);
+    transform: rotate(25deg);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    animation: float-rect-2 10s ease-in-out infinite reverse;
+}
+
+.bg-rect-3 {
+    top: 15%;
+    right: 5%;
+    width: 7vw;
+    height: 7vw;
+    background: linear-gradient(90deg, rgba(0, 147, 233, 0.25) 0%, rgba(19, 84, 122, 0.25) 100%);
+    transform: rotate(-50deg);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    animation: float-rect-3 12s ease-in-out infinite;
+}
+
+@keyframes float-rect-1 {
+
+    0%,
+    100% {
+        transform: rotate(-15deg) translateY(0);
+    }
+
+    50% {
+        transform: rotate(-15deg) translateY(-20px);
+    }
+}
+
+@keyframes float-rect-2 {
+
+    0%,
+    100% {
+        transform: rotate(25deg) translateY(0);
+    }
+
+    50% {
+        transform: rotate(25deg) translateY(-20px);
+    }
+}
+
+@keyframes float-rect-3 {
+
+    0%,
+    100% {
+        transform: rotate(-50deg) translateY(0);
+    }
+
+    50% {
+        transform: rotate(-75deg) translateY(-20px);
+    }
+}
+
+/* Carousel Styles */
+.project-carousel-container {
+    width: 100%;
+    height: 350px;
+    overflow: hidden;
+    position: relative;
+    background-color: #f7f7f7;
+    border-radius: 2px;
+}
+
+.project-carousel-track {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    animation: vertical-scroll 15s linear infinite;
+    will-change: transform;
+}
+
+.project-carousel-track:hover {
+    animation-play-state: paused;
+}
+
+.project-carousel-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    flex-shrink: 0;
+    margin-bottom: 4px;
+    /* Very little gap */
+    padding: 0;
+    box-sizing: border-box;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.project-carousel-image:hover {
+    transform: scale(1.02);
+}
+
+.carousel-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom,
+            rgba(247, 247, 247, 0.1) 0%,
+            rgba(247, 247, 247, 0) 15%,
+            rgba(247, 247, 247, 0) 85%,
+            rgba(247, 247, 247, 0.1) 100%);
+    pointer-events: none;
+    z-index: 2;
+}
+
+@keyframes vertical-scroll {
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(-50%);
+        /* Moves up by exactly one set (3 images) */
+    }
+}
+
+.sourus-track {
+    animation-duration: 35s;
+    /* Slower because more images */
+}
+
+/* Image Modal */
+.image-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(5px);
+    animation: fadeIn 0.3s ease;
+}
+
+.image-modal-content {
+    position: relative;
+    max-width: 90vw;
+    max-height: 90vh;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    border-radius: 4px;
+    overflow: hidden;
+    animation: scaleIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.image-modal-content img {
+    display: block;
+    max-width: 100%;
+    max-height: 90vh;
+    object-fit: contain;
+}
+
+.modal-close-button {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    font-size: 24px;
+    width: 40px;
+    height: 40px;
+    border-radius: 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s ease;
+}
+
+.modal-close-button:hover {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.modal-nav-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    font-size: 30px;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s ease;
+    z-index: 10;
+}
+
+.modal-nav-button:hover {
+    background: rgba(0, 0, 0, 0.8);
+    transform: translateY(-50%);
+    /* Ensure it stays centered */
+}
+
+.modal-nav-prev {
+    left: 0;
+}
+
+.modal-nav-next {
+    right: 0;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        transform: scale(0.9);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .projects-heading {
+        font-size: 42px;
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr;
+        width: 95vw;
+        padding: 0 20px;
+    }
+
+    .projects-item {
+        padding: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .projects-heading {
+        font-size: 32px;
+    }
+}

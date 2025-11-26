@@ -39,7 +39,7 @@ const Process = () => {
     const progress = Math.max(0, Math.min(1, (scaledRatio - baseDelay) / (1 - baseDelay)));
     const opacity = progress;
     const translateY = (1 - progress) * 40; // Start 40px down
-    
+
     return {
       opacity,
       transform: `translateY(${translateY}px)`,
@@ -58,10 +58,11 @@ const Process = () => {
     };
   };
 
-  const handleContactClick = () => {
-    const contactSection = document.getElementById('contact');
-    if (contactSection) {
-      contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+  const handleProjectsClick = () => {
+    const projectsSection = document.getElementById('projects');
+    if (projectsSection) {
+      projectsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   };
 
@@ -113,21 +114,21 @@ const Process = () => {
               <li style={getElementStyle(0.25)}>
                 <strong>Customization</strong>
                 <p className="pillar-detail">
-                  We train and configure AI models to understand your business and your data. 
-                  Documents are processed and ingested into the AI system on scheduled intervals and stored as non-human readable encrypted formats. 
+                  We train and configure AI models to understand your business and your data.
+                  Documents are processed and ingested into the AI system on scheduled intervals and stored as non-human readable encrypted formats.
                 </p>
               </li>
               <li style={getElementStyle(0.3)}>
                 <strong>Monitoring and Optimization</strong>
                 <p className="pillar-detail">
-                  We offer monitoring services to ensure the AI system is performing at its best. 
-                  Our packages include device-lifetime maintenance support so there are no extra billing of maintenance hours. 
+                  We offer monitoring services to ensure the AI system is performing at its best.
+                  Our packages include device-lifetime maintenance support so there are no extra billing of maintenance hours.
                   Our monitoring software is built in-house and is designed to be highly efficient and secure for ease-of-use for any IT department.
                 </p>
               </li>
             </ul>
-            <button className="process-button" style={getElementStyle(0.35)} onClick={handleContactClick}>
-              CONTACT US
+            <button className="process-button" style={getElementStyle(0.35)} onClick={handleProjectsClick}>
+              OUR WORKS
             </button>
           </div>
         </div>

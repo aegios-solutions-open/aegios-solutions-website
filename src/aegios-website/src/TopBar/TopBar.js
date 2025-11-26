@@ -76,6 +76,11 @@ const TopBar = () => {
                 Process
               </a>
             </li>
+            <li className={`navItem ${activeSection === 'projects' ? 'active' : ''}`}>
+              <a href="#projects" onClick={(e) => { e.preventDefault(); scrollToSection('projects'); }}>
+                Our Works
+              </a>
+            </li>
             <li className={`navItem ${activeSection === 'contact' ? 'active' : ''}`}>
               <a href="#contact" onClick={(e) => { e.preventDefault(); scrollToSection('contact'); }}>
                 Contact
