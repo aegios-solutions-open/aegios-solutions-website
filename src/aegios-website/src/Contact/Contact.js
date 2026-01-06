@@ -415,7 +415,7 @@ const Contact = () => {
         </div>
       </div>
       <div className="copyright">
-        <label>© COPYRIGHT AEGIOS SOLUTIONS LTD 2025 - ALL RIGHTS RESERVED.</label>
+        <label>© COPYRIGHT AEGIOS SOLUTIONS LTD 2026 - ALL RIGHTS RESERVED.</label>
       </div>
 
       {/* Bot Test Modal */}
